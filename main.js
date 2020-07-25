@@ -103,6 +103,10 @@ function showNotification(){
     const notification = new Notification("New message from Arshdeep's TO-DO list", {
         body: 'Hey mate, I hope you are doing the things marked in your to-do list'
     });
+
+    notification.addEventListener('click', function(e){
+        window.location.href = 'https://georgiancollege.ca';
+    })
 }
 if(Notification.permission === 'granted'){
     showNotification();
