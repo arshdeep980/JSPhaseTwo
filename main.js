@@ -116,6 +116,8 @@ else if(Notification.permission !== 'denied'){
     .then(permission => {
         if(permission === 'granted'){
             showNotification();
+        }else{
+            alert('You will not see the notifications');
         }
     });
 }
