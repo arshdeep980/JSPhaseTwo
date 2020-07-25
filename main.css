@@ -1,0 +1,86 @@
+/* Some basic styling */
+
+
+/*
+Arshdeep Singh
+*/
+
+li {
+    list-style-type: none;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+main {
+    clear: both;
+}
+
+
+/* styling on input type=text */
+
+input[type="text"] {
+    height: 38px;
+    width: 35%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+h1 {
+    text-shadow: 2px 2px 5px #5CBA53;
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+p {
+    display: inline;
+    padding-left: 5px;
+    padding-right: 7px;
+}
+
+
+/* to have a line through on selecting list item */
+
+.checked {
+    text-decoration: line-through;
+}
+
+.delete {
+    border: 2px solid #007bff;
+}
+
+
+/* delete button hover effect */
+
+.delete:hover {
+    color: #42AFDC;
+    background-color: #000000;
+}
+
+
+/* Mkaing it look more presentable using odd-even colors */
+
+li:nth-child(odd) {
+    background-color: #64d8d8;
+}
+
+li:nth-child(even) {
+    background-color: #5faceb;
+    width: auto;
+}
+
+input[type="text"]#weather {
+    margin-left: 200px;
+    height: 38px;
+    width: 45%;
+    border-radius: 5px;
+    text-align: center;
+    color: black;
+}
+
+input[type="text"]#submit {
+    width: 20%;
+}
+
+h2{
+    font-family: cursive;
+    color: #EC46A8;
+}
