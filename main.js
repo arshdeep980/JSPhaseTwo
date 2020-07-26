@@ -1,21 +1,25 @@
 //JavaScript
-// Arshdeep Singh
+//Arshdeep Singh
 //referencing the ul defined in html document here
 let ul = document.querySelector('ul');
 
 //this is the main function in which all the elements including li, p, buttons chckboxes are defined here.
 //I have also added classes to get them easily
 //So after addition it also clears the input field making it user friendly
+//ADDED THE PROPER DELETE FUNCTIONALITY AS WELL
 function newItem() {
     let input = document.getElementById('inputfield').value;
     let li = document.createElement('li');
+    let span = document.createElement('span');
+
     let delBtn = document.createElement('button');
     let chkbox = document.createElement('input');
     let p = document.createElement('p');
     li.setAttribute('id', 'foodlist');
     delBtn.innerHTML = 'Delete';
+    span.className = 'remove';
+    span.appendChild(delBtn)
     delBtn.setAttribute('class', 'delete');
-    delBtn.addEventListener('click', removeItem);
     chkbox.setAttribute('type', 'checkbox');
     chkbox.setAttribute('class', 'tickbox');
     chkbox.onclick = styleText;
@@ -24,9 +28,19 @@ function newItem() {
     p.setAttribute('class', 'junk');
     p.innerHTML = input;
     li.appendChild(p);
-    li.appendChild(delBtn);
+    li.appendChild(span);
     ul.appendChild(li);
     document.getElementById('inputfield').value = '';
+
+    let remove = document.getElementsByClassName("remove");
+    let i;
+    for (i = 0; i < remove.length; i++) {
+      remove[i].onclick = function () {
+        let div = this.parentElement;
+        div.style.display = "none";
+        
+      };
+    }
 }
 
 
@@ -36,19 +50,17 @@ let addbtn = document.getElementById('addtask');
 addbtn.addEventListener('click', newItem);
 
 
-//JUST THIS FUNCTION HAS ONE LIMITING THING-:
-/*
-I have to double click it for the first time and then it woeks super cool, that's it and the rest is pretty much as expected
-*/
-function removeItem() {
-    let delBtnClick = document.getElementsByClassName('delete');
-    for (let j = 0; j < delBtnClick.length; j++) {
-        delBtnClick[j].addEventListener('click', function() {
-            let li = this.parentElement;
-            li.style.dislay = 'none';
-        });
-    }
-}
+
+//INSTEAD DEFINED A NEW FUNCTIONALITY ON DELETE WHICH IS IN MAIN FUNTION
+// function removeItem() {
+//     let delBtnClick = document.getElementsByClassName('delete');
+//     for (let j = 0; j < delBtnClick.length; j++) {
+//         delBtnClick[j].addEventListener('click', function() {
+//             let li = this.parentElement;
+//             li.style.display = 'none'
+//         });
+//     }
+// }
 
 //BONUS QUESTION FOR THE SOUND
 function playSound() {
@@ -121,3 +133,4 @@ else if(Notification.permission !== 'denied'){
         }
     });
 }
+    
